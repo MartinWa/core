@@ -24,6 +24,7 @@ namespace core
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvcCore();
             services.AddTransient(provider => Configuration);
             services.AddTransient<IGreeter, Greeter>();
         }
@@ -37,7 +38,8 @@ namespace core
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseFileServer();
+            app.UseMvcWithDefaultRoute();
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetGreeting();
