@@ -25,7 +25,7 @@ namespace core
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore();
+            services.AddMvc();
             services.AddTransient(provider => Configuration);
             services.AddTransient<IGreeter, Greeter>();
         }
