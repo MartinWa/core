@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using core.services;
+using core.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,9 +29,9 @@ namespace core
             services.AddMvc();
             services.AddTransient(provider => Configuration);
             services.AddTransient<IGreeter, Greeter>();
+            services.AddScoped<IResturantData, InMemoryResturantData>();
         }
-
-
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IGreeter greeter)
         {
             loggerFactory.AddConsole();
