@@ -8,5 +8,6 @@ namespace core.Services
         IEnumerable<Resturant> GetAll();
         Resturant Get(int id);
         void Add(Resturant resturant);
+        void Commit();
     }
 }

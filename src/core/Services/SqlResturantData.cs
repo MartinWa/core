@@ -26,6 +26,10 @@ namespace core.Services
         public void Add(Resturant resturant)
         {
             _context.Add(resturant);
+        }
+
+        public void Commit()
+        {
             _context.SaveChanges();
         }
     }

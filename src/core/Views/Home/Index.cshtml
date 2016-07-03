@@ -1,21 +1,15 @@
 ﻿@model core.ViewModels.HomeViewModel
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome</h1>
-    <h3>@Model.CurrentGreeting</h3>
-    <div>
-        <table>
-            @foreach (var resturant in Model.Resturants)
-            {
-                <tr>
-                    <td>@Html.ActionLink(resturant.Id.ToString(), "Details", new { id = resturant.Id })</td>
-                    <td>@resturant.Name</td>
-                </tr>
-            }
-        </table>
-    </div>
-</body>
-</html>
+@{
+    ViewBag.Title = "Resturants";
+}
+<h1>Welcome</h1>
+<table>
+    @foreach (var resturant in Model.Resturants)
+    {
+        @Html.Partial("_Summary", resturant)
+    }
+</table>
+
+<div>
+    <a asp-action="Create">Create</a>
+</div>

@@ -5,7 +5,8 @@ namespace core.ViewModels
 {
     public class ResturantViewModel
     {
-        [Display(Name="Resturant Name")]
+        public int Id { get; set; }
+        [Display(Name = "Resturant Name")]
         public string Name { get; set; }
         public CuisineType Cuisine { get; set; }
     }

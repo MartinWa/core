@@ -33,5 +33,9 @@ namespace core.Services
             resturant.Id = Resturants.Max(r => r.Id) + 1;
             Resturants.Add(resturant);
         }
+
+        public void Commit()
+        {
+        }
     }
 }
