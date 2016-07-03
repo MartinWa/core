@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using core.Models;
+using core.Entities;
 
 namespace core.Services
 {

@@ -1,4 +1,4 @@
-﻿namespace core.Models
+﻿namespace core.Entities
 {
     public class Resturant
     {
