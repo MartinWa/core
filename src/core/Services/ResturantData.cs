@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using core.Entities;
 
 namespace core.Services
 {
     public class InMemoryResturantData : IResturantData
     {
-        private readonly IEnumerable<Resturant> _resturants;
+        private static readonly List<Resturant> Resturants;
 
-        public InMemoryResturantData()
+        static InMemoryResturantData()
         {
-            _resturants = new List<Resturant>
+            Resturants = new List<Resturant>
             {
                 new Resturant{Id = 1,Name = "Tersiguel's"},
                 new Resturant {Id = 2, Name = "LJ's and the Kat"},
@@ -19,7 +20,18 @@ namespace core.Services
 
         public IEnumerable<Resturant> GetAll()
         {
-            return _resturants;
+            return Resturants;
+        }
+
+        public Resturant Get(int id)
+        {
+            return Resturants.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Add(Resturant resturant)
+        {
+            resturant.Id = Resturants.Max(r => r.Id) + 1;
+            Resturants.Add(resturant);
         }
     }
 }
